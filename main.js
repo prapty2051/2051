@@ -106,14 +106,20 @@ function movePaddle(){
 function moveBall(){
     ball.x += ball.dx;
     ball.y += ball.dy;
+
     if(ball.x<=0)
     {ball.dx=-4;}
 
     //Surrounding wall collision detection(x-axis)
     //right and left walls
     
+    
+    if(ball.x>=canvas.width)
+    {ball.dx= 4;}
+
     if(ball.y<=0)
-    {ball.dy=4;}
+    {ball.dy= 4;}
+    
     if(ball.y>=canvas.height)
     {ball.dy= -4;}
 
@@ -196,18 +202,17 @@ update();
 //Targetting the right and left arrow keys
 function keyDown(e){
     if(e.key === 'Right' || e.key === 'ArrowRight'){
-
+        paddle.dx=8;
     } else if(e.key === 'Left' || e.key === 'ArrowLeft'){
-
+        paddle.dx=-8;
     } 
 }
 
 //Keyup event function
 function keyUp(e){
     // console.log(e.key);
-    if(e.key === 'Right' || e.key === 'ArrowRight' || e.key === 'Left' || e.key === 'ArrowLeft'){
-
-    } 
+    if(e.key === 'Right' || e.key === 'ArrowRight'|| e.key === 'Left' || e.key === 'ArrowLeft')
+   {}
 }
 
 //Keyboard event handlers
